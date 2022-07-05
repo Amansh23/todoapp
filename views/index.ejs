@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+<body>
+  
+  <div id="main">
+    <div id="box">
+    
+      <% alltask.forEach(function(alltask){ %>
+        <div id="box1">
+        <div id="b1">
+           <%= alltask.task %> 
+         
+        </div>
+        <div id="b2">
+          <%=  `${alltask.time.getHours()%12}: ${alltask.time.getMinutes()}`  %>
+          <a href="/delete/<%= alltask._id %>"> <i class="ri-delete-bin-fill"></i></a>
+        </div>
+      </div>
+        <% }) %>
+     
+      <form action="/createtask" method="post">
+        <input name="task" type="text" placeholder="Post something">
+      </form>
+    </div>
+  </div>
+</body>
+</html>
